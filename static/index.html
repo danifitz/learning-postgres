@@ -1,11 +1,17 @@
 <html>
-    <!-- Here's our head containing metadata about the page -->
-    <head>
-        <meta charset="UTF-8" />
-        <title>Learn</title>
-    </head>
-    <body>
+<!-- Here's our head containing metadata about the page -->
 
+<head>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/carousel.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <title>Learn</title>
+</head>
+
+<body>
+
+    <div id="header-container">
         <!-- Here's our page header -->
         <header>
             <h1>Daniel's Page</h1>
@@ -14,25 +20,100 @@
         <!-- Here's our navigation -->
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#images">Images</a></li>
+                <li><a href="#reasons">Reasons</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+    </div>
 
-        <!-- Here's our main content -->
-        <main>
-            <h2>Title</h2>
-            <p>Some sub text</p>
-            <h3>Sub-title</h3>
-            <p>Some more sub text</p>
-            <blockquote cite="https://newrelic.com">
-                <p>Sometimes you <em>just need</em> something to look <strong>strong</strong></p>
-            </blockquote>
-        </main>
+    <!-- Here's our main content -->
+    <main>
+        <section id="about">
+            <div id="about-container">
+                <h2>I am Daniel Fitzgerald</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.
+                </p>
+            </div>
+        </section>
+        <section id="images">
+            <div class="carousel-wrapper">
+                <div class="carousel">
+                    <img class="carousel__photo initial" src="assets/images/1.jpg">
+                    <img class="carousel__photo" src="assets/images/2.jpg">
+                    <img class="carousel__photo" src="assets/images/3.jpeg">
+                    <img class="carousel__photo" src="assets/images/4.jpg">
+                    <img class="carousel__photo" src="assets/images/4.jpg">
 
-        <!-- Here's our footer -->
-        <footer>
-            <p>©Copyright 2050 by nobody. All rights reversed.</p>
-          </footer>
-    </body>
+                    <div class="carousel__button--next"></div>
+                    <div class="carousel__button--prev"></div>
+                </div>
+            </div>
+        </section>
+        <section id="reasons">
+            <div id="reasons-container">
+                <div id="reasons-1" class="box">
+                    <h3>Reason 1</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.
+                    </p>
+                </div>
+                <div id="reasons-2" class="box">
+                    <h3>Reason 2</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.
+                    </p>
+                </div>
+                <div id="reasons-3" class="box">
+                    <h3>Reason 3</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.
+                    </p>
+                </div>
+                <div id="reasons-4" class="box">
+                    <h3>Reason 4</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.
+                    </p>
+                </div>
+                <div id="reasons-5" class="box">
+                    <h3>Reason 5</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.
+                    </p>
+                </div>
+                <div id="reasons-6" class="box">
+                    <h3>Reason 6</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/carousel.js"></script>
+
+    <!-- Here's our footer -->
+    <footer id="contact">
+        <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>
+</body>
+
 </html>

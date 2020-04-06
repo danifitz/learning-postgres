@@ -1,0 +1,122 @@
+/* CSS reset */
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sen', sans-serif;
+}
+
+#header-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    height: 15vh;
+}
+
+header {
+    justify-self: start;
+}
+
+nav {
+    justify-self: end;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li {
+    margin: 0em 1em 0em 1em;
+    border-bottom: 5px;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-style: solid;
+    border-color: lawngreen;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+section {
+    width: 100%;
+}
+
+#about {
+    background-color: #8FF8FF;
+    /* Header takes 15vh so about takes the other 85vh */
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-container {
+    width: 80%;
+}
+
+#about h2 {
+    font-size: 10vw;
+    margin-bottom: 2vh;
+}
+
+#images {
+    height: 100vh;
+    background-color: #82E8D2;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+footer {
+    height: 15vh;
+    margin: 0px 0px 0px 0px;
+    background-color: black;
+    color: white;
+}
+
+#reasons {
+    background-color: #9CFFCE;
+    height: 100vh;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+#reasons-container {
+    width: 80%;
+    height: 60%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+    #reasons-container {
+        /* grid-template-rows: 1fr; */
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 900px; min-width: 600px) {
+    #reasons-container {
+        /* grid-template-rows: 1fr; */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.box {
+    /* preserve the intended width/heigh */
+    box-sizing: border-box;
+    padding: 0.5vw 0.5vw 0.5vw 0.5vw;
+    background-color: grey;
+}

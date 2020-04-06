@@ -3,72 +3,34 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
-const { Pool } = require('pg')
+const users = require('./users')
 
-const pool = new Pool({
-    user: 'daniel',
-    host: 'localhost',
-    database: 'api',
-    password: 'password',
-    port: 5432
-})
-
-app.use(bodyParser.json())
-app.use(
-    bodyParser.urlencoded({
-        extended: true,
-    })
-)
-
-// serve static files
+/*
+ * Configure express to: 
+ *   - serve static files
+ *   - parse the request body when Content-Type = application/json
+ *   - parse URL encoded params
+ */
 app.use(express.static('static'))
-// use http logging middleware
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+
+/*
+ * Middleware
+ * apiKeyValidation - validates that all requests have a valid API key
+ * httpLogger - logs all incoming HTTP requests
+ */
+app.use(middleware.apiKeyValidation)
 app.use(middleware.httpLogger)
 
-app.use(middleware.apiKeyValidation)
-
-app.get('/users', (req, res) => {
-    getUsers(req, res)
-});
-
-app.get('/users/:id', (req, res) => {
-    getUserById(req, res)
-})
-
-const getUserById = (request, response) => {
-    const userId = parseInt(request.params.id)
-
-    pool
-        .connect()
-        .then(client => client
-            .query('SELECT * FROM users WHERE id = $1', [userId])
-            .then(result => {
-                client.release()
-                response.status(200).json(result.rows)
-            })
-            .catch(err => setImmediate(() => {
-                client.release()
-                throw err
-            })))
-}
-
-const getUsers = (_request, response) => {
-    pool
-        .connect()
-        .then(client => client
-            .query('SELECT * FROM users ORDER BY id ASC')
-            .then(result => {
-                client.release()
-                response.status(200).json(result.rows)
-            })
-            .catch(err =>
-                setImmediate(() => {
-                    client.release()
-                    throw err
-                })
-            )
-        )
-}
+/*
+ * Users HTTP handlers
+ */
+app.get('/users', users.getUsers)
+app.post('/users', users.createUser)
+app.get('/users/:id', users.getUserById)
+app.put('/users/:id', users.updateUser)
+app.delete('/users/:id', users.deleteUser)
 
 app.listen(port, () => {
     middleware.logger.info(`app listening on port ${port}`)
